@@ -24,7 +24,7 @@ terminal.onData((char) => {
   if (inputMode === InputMode.LINE || inputMode === InputMode.LINE_EXCEPT_SPECIAL) {
     if (char == "\r" || char === "\n") {
       terminal.write("\n\r")
-      socket.emit("input", input)
+      socket.emit("input-line", input)
       input = ""
     } else {
       //@ts-ignore
