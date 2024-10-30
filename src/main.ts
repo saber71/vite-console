@@ -48,8 +48,8 @@ socket.on("print", (data) => {
   input = ""
   terminal.write(data)
 })
-socket.on("connect", () => {
-  socket.emit("resize", { cols: terminal.cols, rows: terminal.rows })
+socket.on("get-size", () => {
+  socket.emit("ack:get-size", { cols: terminal.cols, rows: terminal.rows })
 })
 socket.on("resize", (size: { cols: number; rows: number }) => {
   terminal.resize(size.cols, size.rows)
